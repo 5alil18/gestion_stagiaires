@@ -9,6 +9,7 @@ import {
   Typography,
   Alert
 } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function StagiaireForm({ addStagiaire }) {
   const [form, setForm] = useState({
@@ -40,6 +41,7 @@ export default function StagiaireForm({ addStagiaire }) {
   function handleClose() {
     setClick(false);
   }
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
     <Box
@@ -47,11 +49,11 @@ export default function StagiaireForm({ addStagiaire }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        mt: 5,
+        my: 2,
         gap: 5,
       }}
     >
-      <Typography variant="h2" sx={{ mx: "auto" }} color="primary">
+      <Typography variant={!isMobile?"h2":"h4"} sx={{ mx: "auto" }} color="primary">
         Fomulaire
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>

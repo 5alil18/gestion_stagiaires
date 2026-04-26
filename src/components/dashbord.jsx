@@ -13,7 +13,7 @@ import {
   Cell,
   Legend,
 } from "recharts";
-const COLORS = ["#fbc02d", "#0028f2", "#2e7d32", "#8e24aa", "#d32f2f", '#fbcf', '#b086bc'];
+const COLORS = ["#fbc02d", "#0028f2", "#2e7d32", "#8e24aa", "#d32f2f", '#fbcf', '#4ad8ff'];
 export default function Dashboard({ stagiaires }) {
   //  total
   const total = stagiaires.length;

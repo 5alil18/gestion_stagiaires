@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { Container, Typography, Button, AppBar } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Button,
+  AppBar,
+  IconButton,
+} from "@mui/material";
 import StagiaireForm from "./components/formulaire";
 import StagiaireList from "./components/list";
 import Dashboard from "./components/dashbord";
@@ -8,6 +14,7 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import Home from "@mui/icons-material/Home";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { supabase } from "./supabase/supabaseClient";
+import useMediaQuery from "@mui/material/useMediaQuery";
 function App() {
   const [stagiaires, setStagiaires] = useState([]);
 
@@ -57,7 +64,7 @@ function App() {
   //     ),
   //   );
   // }
-    const updateStagiare = async (id, value) => {
+  const updateStagiare = async (id, value) => {
     const { error } = await supabase
       .from("stagiare")
       .update({ periode: value })
@@ -70,39 +77,42 @@ function App() {
 
   const navigate = useNavigate();
   const [color, setColor] = useState("home");
-
+  const isMobile = useMediaQuery("(max-width:600px)");
   return (
     <>
       <AppBar
         sx={{ height: 80, position: "sticky", bgcolor: "secondary.main" }}
       >
         {" "}
-        <Typography variant="h4" sx={{ mt: 3, textAlign: "center" }}>
+        <Typography
+          variant={isMobile ? "body1" : "h4"}
+          sx={{ mt: 3, textAlign: "center" }}
+        >
           Gestion des Stagiaires
         </Typography>
-        <Button
+        <IconButton
           onClick={() => {
             navigate("/dashboard");
             setColor("dash");
           }}
           sx={{
             position: "absolute",
-            top: 14,
-            right: 20,
-            bgcolor: "rgba(255,255,255,0.5)",
+            top:!isMobile?14:19,
+            right:!isMobile?20:10,
+            bgcolor: "rgba(255,255,255,0.2)",
             borderRadius: "50%",
             p: 1,
           }}
         >
           <LeaderboardIcon
-            sx={{ height: 40, width: 40 }}
+            sx={{ height: isMobile ? 20 : 40, width: isMobile ? 20 : 40 }}
             color={color === "dash" ? "error" : "primary"}
           />
           <Typography
             variant="h6"
             sx={{
               position: "absolute",
-              top: -34,
+              top:-37,
               right: 6,
               color: "red",
               scale: 4,
@@ -110,51 +120,51 @@ function App() {
           >
             {stagiaires.length ? "." : ""}
           </Typography>
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             navigate("/list");
             setColor("list");
           }}
           sx={{
             position: "absolute",
-            top: 15,
-            right: 90,
-            bgcolor: "rgba(255,255,255,0.5)",
+            top:!isMobile?15:19,
+            right: !isMobile?90:50,
+            bgcolor: "rgba(255,255,255,0.2)",
             borderRadius: "50%",
             p: 1,
           }}
         >
           <PeopleAltIcon
-            sx={{ height: 40, width: 40 }}
+            sx={{ height: isMobile ? 20 : 40, width: isMobile ? 20 : 40 }}
             color={color === "list" ? "error" : "primary"}
           />
           <Typography
-            variant="h6"
-            sx={{ position: "absolute", top: -10, right: 4, color: "red" }}
+            variant= {!isMobile?"h6":'body1'}
+            sx={{ position: "absolute", top: -10, right: 1, color: "red" }}
           >
             {stagiaires.length}
           </Typography>
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             navigate("/");
             setColor("home");
           }}
           sx={{
             position: "absolute",
-            top: 17,
-            left: 80,
-            bgcolor: "rgba(255,255,255,0.5)",
+            top:!isMobile? 17:19,
+            left: !isMobile?80:30,
+            bgcolor: "rgba(255,255,255,0.2)",
             borderRadius: "50%",
             p: 1,
           }}
         >
           <Home
-            sx={{ height: 40, width: 40 }}
+            sx={{ height: isMobile ? 20 : 40, width: isMobile ? 20 : 40 }}
             color={color === "home" ? "error" : "primary"}
           />
-        </Button>
+        </IconButton>
       </AppBar>{" "}
       <Container>
         <Routes>

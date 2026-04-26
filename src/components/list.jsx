@@ -14,6 +14,7 @@ import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import Updatepopup from "./updatepopup";
 import { useState } from "react";
 import Deletepopup from "./deletepopup";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function StagiaireTable({
   stagiaires,
@@ -36,12 +37,12 @@ export default function StagiaireTable({
   function handleseconddelete(id){
     deleteStagiaire(id);
   }
-
+  const isMobile = useMediaQuery('(max-width:600px)');
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 8, my: 2 }}
     >
-      <Typography variant="h2" color="primary" sx={{ textAlign: "center" }}>
+      <Typography variant={!isMobile?"h2":'h4'} color="primary" sx={{ textAlign: "center" }}>
         list des stagiaires
       </Typography>
       <Paper sx={{ mt: 3 }}>
