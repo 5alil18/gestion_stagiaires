@@ -7,8 +7,8 @@ export default function Deletepopup({
   open,
   handleClickOpen,
   handleClose,
-  handledlete,
-  index,
+  handledelete,
+  
 }) {
   return (
     <>
@@ -24,13 +24,14 @@ export default function Deletepopup({
         </DialogTitle>
 
         <DialogActions>
-          <Button onClick={handleClose} color="error" autoFocus>
+          <Button onClick={handleClose} color="error" autoFocus variant='outlined'>
             Disagree
           </Button>
-          <Button
+          <Button 
+          variant='contained'
           color="error"
             onClick={() => {
-              handledlete(index);
+              handledelete();
               handleClose()
             }}
           >
