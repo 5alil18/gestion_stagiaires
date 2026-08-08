@@ -96,10 +96,6 @@ export default function StagiaireForm() {
     }, 2000);
     }
   };
-
-
-
-  
   const [click, setClick] = useState(false);
   function handleClose() {
     setClick(false);
@@ -121,7 +117,6 @@ export default function StagiaireForm() {
       }}
     >
       <Box sx={{ display: "flex", flexDirection: isMobile ? "column" : "row", minHeight: 540 }}>
-        {/* Left Dark Sidebar Panel - Geometric Balance */}
         <Box
           sx={{
             width: isMobile ? "100%" : "34%",
