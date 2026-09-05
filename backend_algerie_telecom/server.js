@@ -8,17 +8,8 @@ const cors = require("cors");
 
 app.use(cors());
 //////////////////////////connecter mongoose
-const mongoose = require("mongoose");
-const mongo = process.env.mongo_uri;
-
-mongoose
-  .connect(mongo)
-  .then(() => {
-    console.log("database connected successfuly");
-  })
-  .catch((e) => {
-    console.log("data base connection failed", e);
-  });
+const connectDB= require("./config/db");
+connectDB();
 
 const stagiareRouter = require("./routes/stagiareRoute");
 const companyRouter = require("./routes/companyRoute");
@@ -32,3 +23,4 @@ const port = process.env.port;
 app.listen(port, () => {
   console.log("le serveur demare sur le port " + port);
 });
+

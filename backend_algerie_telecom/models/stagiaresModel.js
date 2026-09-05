@@ -25,7 +25,6 @@ const stagiareSchema = new mongoose.Schema({
   dateDebut: {
     type: String,
     required: true,
-    
   },
   dateFin: {
     type: String,
@@ -34,8 +33,9 @@ const stagiareSchema = new mongoose.Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Company",
-    required:true 
+    required: true,
   },
+  
 });
 
 module.exports = mongoose.model("stagaire", stagiareSchema);

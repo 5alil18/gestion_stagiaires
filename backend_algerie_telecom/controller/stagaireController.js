@@ -37,20 +37,7 @@ const getStagaireByDomainController = async (req, res) => {
   }
 };
 
-// const getStagiareByNameController = async (req, res) => {
-//   try {
-//     const { nom } = req.params;
-//     const stagiare = await getStagiareByName(nom, req.company._id);
-//     if (!stagiare || stagiare.length === 0) {
-//       return res.status(404).send("user not found");
-//     }
-//     res.status(200).json({
-//       data: stagiare,
-//     });
-//   } catch (e) {
-//     res.status(500).send(e);
-//   }
-// };
+
 
 const createStagiareController = async (req, res) => {
   try {
