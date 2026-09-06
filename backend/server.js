@@ -1,12 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+/////////////////:json
 app.use(express.json());
+////////////////helmet
 const helmet = require("helmet");
 app.use(helmet());
-const cors = require("cors");
 
+//////////////////cors
+const cors = require("cors");
 app.use(cors());
+
+/////////////////////xss (cross site Scripting)
+const xss = require("xss-clean")
+app.use(xss());
 //////////////////////////connecter mongoose
 const connectDB= require("./config/db");
 connectDB();
