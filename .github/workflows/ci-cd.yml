@@ -1,0 +1,28 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # React CRA
+      - name: Install React dependencies
+        run: npm install
+
+      - name: Test React
+        run: npm test -- --watchAll=false
+
+      - name: Build React
+        run: npm run build
+
+      # Express Backend
+      - name: Install Backend dependencies
+        working-directory: ./backend
+        run: npm install
