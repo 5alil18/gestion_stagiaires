@@ -25,8 +25,10 @@ app.use(cors());
 // );
 
 /////////////////////xss (cross site Scripting)
-const xss = require("xss-clean");
-app.use(xss());
+
+
+// const xss = require("xss-clean");
+// app.use(xss());
 ////////////////////hpp( http paramater pollution)
 const hpp = require("hpp");
 app.use(hpp());
