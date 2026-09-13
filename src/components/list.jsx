@@ -35,7 +35,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useState, useRef, useContext, useEffect } from "react";
 import { Context } from "../context/context";
-import Deletepopup from "./deletePopup";
+import Deletepopup from "./deletepopup";
 import axios from "axios";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
