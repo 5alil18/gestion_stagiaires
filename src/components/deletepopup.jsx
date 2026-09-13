@@ -5,7 +5,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export default function Deletepopup({
   open,
-  handleClickOpen,
   handleClose,
   handledelete,
   
